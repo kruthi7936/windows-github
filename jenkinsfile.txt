@@ -1,7 +1,8 @@
 pipeline {
-	agent any 
+	agent none
 		stages {
 			stage('Build') {
+			agent { label 'node1' }
 					steps {
 						sh 'sleep 10; echo " this is build stage"; echo "this synatx is to run a single command"'
 					
@@ -9,6 +10,7 @@ pipeline {
 						}
 					}
 				stage('Test'){
+				agent { label 'node2' }
 					steps {
 						sh """
 							sleep 10
@@ -22,11 +24,13 @@ pipeline {
 					}
 				}
 				stage('Deploy'){
+				agent { label 'node1' }
 					steps {
 						sh 'echo "let us check"'
 					}
 				}
 				stage('My-stage'){
+				agent { label 'node2' }
 					steps {
 						sh 'echo "let us see how it works"'
 					
