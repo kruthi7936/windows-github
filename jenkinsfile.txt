@@ -3,31 +3,32 @@ pipeline {
 		stages {
 			stage('Build') {
 					steps {
-					sh 'sleep 10'; echo " this is build stage"; echo "this synatx is to run a single command"
+						sh 'sleep 10'; echo " this is build stage"; echo "this synatx is to run a single command"'
 					
 					
+						}
 					}
-				}
 				stage('Test'){
 					steps {
-					sh " " "
-					sleep 10
-					echo "this is my first build of first pipeline job"
-					echo "if we have linux slave mechine we use sh"		
-					echo "this is a test satge"
-					echo " here we can write mulyiple commands inised sh"
+						sh """
+							sleep 10
+							echo "this is my first build of first pipeline job"
+							echo "if we have linux slave mechine we use sh"		
+							echo "this is a test satge"
+							echo " here we can write mulyiple commands inised sh"
 					
-					"""
+						"""
 					
 					}
 				}
 				stage('Deploy'){
 					steps {
-					
+						sh 'echo "let us check"'
 					}
 				}
 				stage('My-stage'){
 					steps {
+						sh 'echo "let us see how it works"'
 					
 					}
 				}	
