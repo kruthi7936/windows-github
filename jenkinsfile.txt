@@ -16,6 +16,7 @@ pipeline {
 					echo "if we have linux slave mechine we use sh"		
 					echo "this is a test satge"
 					echo " here we can write mulyiple commands inised sh"
+					
 					"""
 					
 					}
