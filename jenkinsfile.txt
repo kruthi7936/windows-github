@@ -1,8 +1,8 @@
 pipeline {
-	agent none
+	agent { label 'master' }
 		stages {
 			stage('Build') {
-			agent { label 'node1' }
+			
 					steps {
 						sh 'sleep 10; echo " this is build stage"; echo "this synatx is to run a single command"'
 					
@@ -10,27 +10,27 @@ pipeline {
 						}
 					}
 				stage('Test'){
-				agent { label 'node2' }
+				
 					steps {
-						sh """
+						sh '''
 							sleep 10
 							echo "this is my first build of first pipeline job"
 							echo "if we have linux slave mechine we use sh"		
 							echo "this is a test satge"
 							echo " here we can write mulyiple commands inised sh"
 					
-						"""
+						'''
 					
 					}
 				}
 				stage('Deploy'){
-				agent { label 'node1' }
+				
 					steps {
 						sh 'echo "let us check"'
 					}
 				}
 				stage('My-stage'){
-				agent { label 'node2' }
+				
 					steps {
 						sh 'echo "let us see how it works"'
 					
