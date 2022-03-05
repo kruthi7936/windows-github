@@ -1,6 +1,10 @@
 pipeline {
-	agent { label 'master' }
+	agent { label 'node1' }
 		stages {
+			
+			stage { ('build ans test are in parallel') 
+			parallel {
+
 			stage('Build') {
 			
 					steps {
@@ -21,6 +25,9 @@ pipeline {
 					
 						'''
 					
+						}
+
+						}
 					}
 				}
 				stage('Deploy'){
